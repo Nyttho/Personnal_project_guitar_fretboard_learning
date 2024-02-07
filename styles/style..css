@@ -34,11 +34,13 @@ h1 {
   height: 20vw;
   border-radius: 20px;
   position: relative;
+  user-select: none;
 }
 
 .fretboard img {
   width: 100%;
   height: 100%;
+  user-select: none;
 }
 
 .note-to-find {
