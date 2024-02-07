@@ -83,6 +83,11 @@ function checkResponse(e) {
 function result(win) {
     const replayBtn = document.querySelector("button");
     const resultText = document.querySelector(".result-text");
+    const notes = document.querySelectorAll(".note");
+
+    notes.forEach((note) => {
+        note.removeEventListener("click", checkResponse);
+    });
     if (win) {
         resultText.textContent = "Bravo vous avez trouvé";
         resultText.style.color = "green";
