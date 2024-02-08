@@ -217,7 +217,8 @@ function result(win) {
         resultText.textContent = "Et non ! Vous vous êtes trompé !";
         resultText.style.color = "red";
     }
-    replayBtn.style.opacity = "1"
+    resultText.style.opacity = "1";
+    replayBtn.style.opacity = "1";
 }
 
 //replay function
