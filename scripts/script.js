@@ -156,6 +156,7 @@ function fullString(scale) {
     }
 }
 
+//empty notes on strings
 function clearString() {
     const strings = document.querySelectorAll(".string");
 
@@ -208,6 +209,7 @@ function result(win) {
 
     notes.forEach((note) => {
         note.removeEventListener("click", checkResponse);
+        note.style.cursor = "default";
     });
     if (win) {
         resultText.textContent = "Bravo vous avez trouvé !";
