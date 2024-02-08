@@ -13,12 +13,15 @@ a {
 
 body {
   background: #2c2c2c;
-  /* width: 100vw; */
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
+}
+
+h3 {
+  text-decoration: underline;
+  font-size: 2rem;
 }
 
 .app {
@@ -26,6 +29,38 @@ body {
   flex-direction: column;
   align-items: center;
   color: #fff;
+}
+
+.settings {
+  position: fixed;
+  width: 40vw;
+  height: 100vh;
+  z-index: 99;
+  transform: translateX(180%);
+  transition: transform 0.5s ease;
+  background-color: #4c4c4c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: -5px 0 10px rgb(119, 119, 119);
+}
+
+.settings.opened {
+  transform: translateX(75%);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.settings .scale-settings {
+  display: flex;
+  gap: 20px;
 }
 
 nav {
@@ -123,7 +158,7 @@ nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: blue;
   opacity: 0;
   color: #fff;
   cursor: pointer;
