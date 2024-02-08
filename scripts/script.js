@@ -111,10 +111,9 @@ function showScale(tonic, chromatic, scale) {
     console.log(notesScale);
     notes.forEach((note) => {
         note.removeEventListener("click", checkResponse)
+        note.style.cursor = "default";
         if (notesScale.includes(note.textContent)) {
-            //changer pour ajouter une class pour que ce soit moins bourrin
             note.classList.add("reveal");
-
         }
     })
 }
