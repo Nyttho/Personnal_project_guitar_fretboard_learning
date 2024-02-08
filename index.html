@@ -12,29 +12,62 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <!-- fontawesome  -->
+    <script
+      src="https://kit.fontawesome.com/d220321d0c.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Entraine toi à visualiser ton fretboard !</title>
   </head>
   <body>
-    <main class="app">
-      <h1>Trouve la note suivante : <span class="note-to-find"></span></h1>
-      <div class="result">
-        <p class="result-text"></p>
-      </div>
-      <div class="fretboard">
-        <img
-          src="assets/guitar-fretboard-bg-removed.png"
-          alt="guitar fretboard"
-        />
-        <div class="low e string"></div>
-        <div class="a string"></div>
-        <div class="d string"></div>
-        <div class="g string"></div>
-        <div class="b string"></div>
-        <div class="high e string"></div>
-      </div>
-      <div class="replay">
-        <button>rejouer ?</button>
-      </div>
-    </main>
+    <div class="app">
+      <main>
+        <nav>
+          <ul>
+            <li><i class="fa-solid fa-music"></i></li>
+            <li><i class="fa-solid fa-gamepad"></i></li>
+            <li><i class="fa-solid fa-gear"></i></li>
+          </ul>
+        </nav>
+        <p class="game">
+          Trouve la note suivante : <span class="note-to-find"></span>
+        </p>
+        <div class="result">
+          <p class="result-text"></p>
+        </div>
+        <div class="fretboard">
+          <img
+            src="assets/guitar-fretboard-bg-removed.png"
+            alt="guitar fretboard"
+          />
+          <div class="six e string"></div>
+          <div class="five string"></div>
+          <div class="four string"></div>
+          <div class="three string"></div>
+          <div class="two string"></div>
+          <div class="one e string"></div>
+        </div>
+        <div class="replay">
+          <button>rejouer ?</button>
+        </div>
+      </main>
+      <footer>
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/anthony-dumas-1b347024b/"
+              target="_blank"
+            >
+              <i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/Nyttho" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
   </body>
 </html>

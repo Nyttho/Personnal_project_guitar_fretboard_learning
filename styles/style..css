@@ -6,10 +6,15 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
 body {
   background: #2c2c2c;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,9 +28,32 @@ body {
   color: #fff;
 }
 
-h1 {
-  margin-bottom: 150px;
+nav {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+nav ul li {
+  list-style-type: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.game {
+  margin-bottom: 80px;
   font-size: 4rem;
+  text-align: center;
+  opacity: 0;
+  user-select: none;
 }
 
 .fretboard {
@@ -57,31 +85,31 @@ h1 {
   align-items: center;
 }
 
-.low {
+.six {
   bottom: 29%;
   transform: rotate(1deg);
 }
 
-.a {
+.five {
   bottom: 39%;
   transform: rotate(0.7deg);
 }
 
-.d {
+.four {
   bottom: 48%;
   transform: rotate(0.25deg);
 }
 
-.g {
+.three {
   bottom: 58%;
 }
 
-.b {
+.two {
   top: 31%;
   transform: rotate(-0.4deg);
 }
 
-.high {
+.one {
   top: 21%;
   transform: rotate(-0.75deg);
 }
@@ -176,10 +204,19 @@ h1 {
   left: 93%;
 }
 
+.result {
+  height: 3rem;
+  margin-bottom: 50px;
+}
 .result-text {
-  margin-bottom: 100px;
   font-weight: 600;
   font-size: 3rem;
+  text-align: center;
+}
+
+.replay {
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -190,5 +227,17 @@ button {
   cursor: pointer;
   font-size: 2rem;
   text-transform: uppercase;
-  display: none;
+  opacity: 0;
+}
+
+footer ul {
+  margin-top: 2rem;
+  display: flex;
+  gap: 20px;
+}
+
+footer ul li {
+  color: #fff;
+  list-style-type: none;
+  font-size: 2rem;
 }

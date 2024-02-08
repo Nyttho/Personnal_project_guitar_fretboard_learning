@@ -1,31 +1,73 @@
+const controller = document.querySelector(".fa-gamepad");
 const sharpNotes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const flatNotes = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
 let win = false;
 let noteToFind;
 let randomScale;
+//numbers of semitones in scales
+const diatonicMajorScale = [0, 2, 4, 5, 7, 9, 11];
+const diatonicMinorScale = [0, 2, 3, 5, 7, 8, 10];
+const minorHarmonicScale = [0, 2, 3, 5, 7, 8, 11];
+const minorMelodicScale = [0, 2, 3, 5, 7, 9, 11];
+
+const MajorPenta = [0, 2, 4, 7, 9];
+const MinorPenta = [0, 3, 5, 7, 10];
+
+
+const strings = {
+    six: [],
+    five: [],
+    four: [],
+    three: [],
+    two: [],
+    one: []
+};
+
+controller.addEventListener("click", launchGame);
+
+
+// showScale("Bb", flatNotes, diatonicMajorScale);
+
+//fonction pour créer la gamme (test)
+
+function showScale(tonic, chromatic, scale) {
+    randomScale = chromatic;
+    fullString(randomScale);
+    const notes = document.querySelectorAll(".note");
+
+    let fundamentalIndex = chromatic.findIndex((note) => note === tonic);
+    let index;
+    let notesScale = []
+
+    for (let i = 0; i < scale.length; i++) {
+        index = (fundamentalIndex + scale[i]) % chromatic.length
+        notesScale.push(chromatic[index]);
+    }
+    console.log(notesScale);
+    notes.forEach((note) => {
+        if (notesScale.includes(note.textContent)) {
+            //changer pour ajouter une class pour que ce soit moins bourrin
+            note.style.opacity = "1";
+            note.style.backgroundColor = "blue";
+            note.style.height = "30px";
+            note.style.width = "30px";
+        }
+    })
+}
+
 
 function getRandomScale() {
     randomScale = Math.random() >= 0.5 ? sharpNotes : flatNotes;
 }
 
-
-const strings = {
-    low: [],
-    A: [],
-    D: [],
-    G: [],
-    B: [],
-    high: []
-};
-
 function fullString(scale) {
     const fretZeros = {
-        low: "E",
-        A: "A",
-        D: "D",
-        G: "G",
-        B: "B",
-        high: "E"
+        six: "E",
+        five: "A",
+        four: "D",
+        three: "G",
+        two: "B",
+        one: "E"
     };
 
     const stringNames = Object.keys(strings);
@@ -89,13 +131,13 @@ function result(win) {
         note.removeEventListener("click", checkResponse);
     });
     if (win) {
-        resultText.textContent = "Bravo vous avez trouvé";
+        resultText.textContent = "Bravo vous avez trouvé !";
         resultText.style.color = "green";
     } else {
         resultText.textContent = "Et non ! Vous vous êtes trompé !";
         resultText.style.color = "red";
     }
-    replayBtn.style.display = "block"
+    replayBtn.style.opacity = "1"
 }
 
 function replay() {
@@ -105,14 +147,17 @@ function replay() {
 }
 
 function launchGame() {
+    const question = document.querySelector(".game");
     const replayBtn = document.querySelector("button");
+
+    question.style.opacity = "1";
 
     const notes = document.querySelectorAll(".note");
     notes.forEach((note) => {
         note.classList.remove("reveal");
         note.style.backgroundColor = ""; // Réinitialiser la couleur de fond
     });
-    replayBtn.style.display = "none"
+    replayBtn.style.opacity = "0"
 
     const resultText = document.querySelector(".result-text");
     resultText.textContent = ""; // Réinitialiser le texte du résultat
@@ -124,6 +169,5 @@ function launchGame() {
     replay();
 }
 
-launchGame();
 
 
