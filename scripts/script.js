@@ -230,30 +230,6 @@ function replay() {
 //game function
 function launchGame() {
     clearString();
-    function showScale(tonic, chromatic, scale) {
-        const stringNames = Object.keys(strings);
-
-        stringNames.forEach((stringName) => {
-            const notes = document.querySelectorAll(`.${stringName.toLowerCase()} .note`);
-
-            let fundamentalIndex = chromatic.findIndex((note) => note === fretZeros[stringName]);
-            let index;
-            let notesScale = []
-
-            for (let i = 0; i < scale.length; i++) {
-                index = (fundamentalIndex + scale[i]) % chromatic.length
-                notesScale.push(chromatic[index]);
-            }
-
-            notes.forEach((note) => {
-                if (notesScale.includes(note.textContent)) {
-                    note.classList.add("reveal");
-                } else {
-                    note.classList.remove("reveal"); // Remove reveal class if not in scale
-                }
-            });
-        });
-    }
 
     const question = document.querySelector(".game");
     const replayBtn = document.querySelector("button");
