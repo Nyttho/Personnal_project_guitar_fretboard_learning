@@ -62,6 +62,7 @@ userScale.addEventListener("change", () => {
         default: console.log("pas encore fait");
     }
 })
+
 quaver.addEventListener("click", () => {
 
     if (userTonalityChoice === "C" || userTonalityChoice === "D" || userTonalityChoice === "E" || userTonalityChoice === "G" || userTonalityChoice === "A" || userTonalityChoice === "B") {
@@ -80,10 +81,6 @@ quaver.addEventListener("click", () => {
     showScale(userTonalityChoice, sharpOrFlat, chosenScale);
 })
 
-
-
-
-
 function closeSettings() {
     settings.classList.remove("opened");
 }
@@ -96,6 +93,8 @@ function openSettings() {
 
 function showScale(tonic, chromatic, scale) {
     clearString();
+    const resultText = document.querySelector(".result-text");
+    resultText.style.opacity = "0";
 
     fullString(sharpOrFlat);
     const notes = document.querySelectorAll(".note");
