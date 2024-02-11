@@ -164,8 +164,6 @@ function clearString() {
     })
 }
 
-
-
 //get random note for the game
 function rollNote(scale) {
     const span = document.querySelector(".note-to-find");
@@ -185,7 +183,6 @@ function noteReveal() {
         note.addEventListener("click", checkResponse);
     });
 }
-
 
 //check if it's win or lose during the game
 function checkResponse(e) {
