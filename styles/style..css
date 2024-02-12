@@ -21,7 +21,7 @@ body {
 
 h3 {
   text-decoration: underline;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .app {
@@ -54,7 +54,7 @@ h3 {
   position: absolute;
   top: 10px;
   right: 30px;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 2rem);
   cursor: pointer;
 }
 
@@ -85,9 +85,9 @@ nav ul li {
 
 .game {
   margin-bottom: 80px;
-  font-size: 4rem;
+  font-size: clamp(1.2rem, 3vw, 4rem);
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   user-select: none;
 }
 
@@ -98,12 +98,15 @@ nav ul li {
   border-radius: 20px;
   position: relative;
   user-select: none;
+  /* top: -40px; */
+  overflow: hidden;
 }
 
 .fretboard img {
   width: 100%;
   height: 100%;
   -webkit-user-drag: none;
+  border-radius: 20px;
 }
 
 .note-to-find {
@@ -147,6 +150,11 @@ nav ul li {
 .one {
   top: 21%;
   transform: rotate(-0.75deg);
+}
+
+.fretboard-container {
+  width: fit-content;
+  height: fit-content;
 }
 
 .fretboard .note {
@@ -248,7 +256,7 @@ nav ul li {
 }
 .result-text {
   font-weight: 600;
-  font-size: 3rem;
+  font-size: clamp(1rem, 2.5vw, 3rem);
   text-align: center;
 }
 
@@ -263,7 +271,7 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 2rem);
   text-transform: uppercase;
   opacity: 0;
 }
@@ -281,10 +289,81 @@ footer ul li {
 }
 
 @media screen and (max-width: 600px) {
+  .settings {
+    width: 100%;
+    height: 15vh;
+    z-index: 99;
+    transform: translateX(2%) translateY(-110%);
+    box-shadow: 0 5px 10px rgb(119, 119, 119);
+  }
+
+  .settings .scale-settings {
+    margin-top: 0.5rem;
+  }
+
+  .settings.opened {
+    transform: translateX(2%) translateY(0);
+  }
+  nav {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav ul {
+    margin-right: 2rem;
+    width: fit-content;
+  }
+
+  .fretboard-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .fretboard .note.reveal {
+    transform: scale(0.6) rotate(-90deg) translateY(-50%);
+    transform-origin: center;
+  }
+
   .fretboard {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(2) translateY(-25%);
+    transform-origin: left;
+    margin-left: calc(20vw + 25%);
   }
   .note {
     transform: rotate(-90deg);
   }
+
+  main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .game {
+    margin: 0;
+  }
+  .result {
+    margin: 0;
+  }
+
+  .replay {
+    position: absolute;
+    top: -25px;
+    left: 5px;
+  }
+  button {
+    padding: 0.5rem;
+  }
+
+  footer {
+    margin-top: 150px;
+    width: 100%;
+  }
+  footer ul {
+    justify-content: center;
+    margin: 0;
+  }
+  /* corriger footer  */
 }
